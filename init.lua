@@ -318,16 +318,16 @@ require("lazy").setup({
 		end,
 	},
   {
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
     config = function ()
-      require('lualine').setup({
+      require("lualine").setup({
         sections = {
-          lualine_a = { 'mode' },
-          lualine_b = { 'buffers' },
+          lualine_a = {"mode"},
+          lualine_b = {"buffers"},
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
-          lualine_z = {}
+          lualine_z = {"branch"}
         },
         extension = {"nvim-tree"},
       })
@@ -335,7 +335,7 @@ require("lazy").setup({
       vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Navigate next buffer."})
       vim.keymap.set("n", "<C-Shift-Tab>", "<cmd>bprev<CR>", { desc = "Navigate previous buffer."})
     end,
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    dependencies = { "nvim-tree/nvim-web-devicons" }
   }
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
