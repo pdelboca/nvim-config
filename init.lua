@@ -15,6 +15,9 @@ vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "NVimTree toggl
 
 vim.opt.number = true
 
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 -- Sync clipboard between OS and Neovim.
