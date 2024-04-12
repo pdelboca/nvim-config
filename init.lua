@@ -14,6 +14,7 @@ require("nvim-tree").setup({
 vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "NVimTree toggle window"})
 
 vim.opt.number = true
+vim.opt.relativenumber=true
 
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
