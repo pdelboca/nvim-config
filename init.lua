@@ -339,6 +339,11 @@ require("lazy").setup({
       vim.keymap.set("n", "<C-Shift-Tab>", "<cmd>bprev<CR>", { desc = "Navigate previous buffer."})
     end,
     dependencies = { "nvim-tree/nvim-web-devicons" }
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
   }
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
