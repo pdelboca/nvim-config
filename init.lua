@@ -213,7 +213,8 @@ require("lazy").setup({
 			local servers = {
         html = {
           filetypes = {"html", "templ", "htmldjango"}
-        }
+        },
+        pylsp = {},
 			}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
@@ -337,6 +338,15 @@ require("lazy").setup({
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
+  },
+  {
+    "f-person/git-blame.nvim",
+    config = function ()
+      require("gitblame").setup({
+        enabled = false,
+        date_format = "%r",
+      })
+    end
   }
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
