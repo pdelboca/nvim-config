@@ -7,7 +7,7 @@ return {
         lualine_b = {"buffers"},
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {},
+        lualine_y = {{"filename", path = 1}},
         lualine_z = {"branch"}
       },
       extension = {"nvim-tree"},
