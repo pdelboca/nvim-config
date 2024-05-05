@@ -14,10 +14,20 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
+
+vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
-vim.opt.softtabstop =4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = {"*.js", "*.html", "*.css", "*.lua", "*.tf"},
+  callback = function()
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+    vim.opt.shiftwidth = 2
+  end
+})
 
 -- [[ Basic Keymaps ]]
 vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#|bd#<cr>", {desc = "Close all other buffers"} )
