@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "pyright" }
+        ensure_installed = { "pylsp" }
       })
     end
   },
@@ -17,7 +17,19 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.pyright.setup({})
+      lspconfig.pylsp.setup({
+        settings = {
+          pylsp = {
+            plugins = {
+              flake8 = {enabled = true},
+              pycodestyle = {enabled = false},
+              pyflakes = {enabled = false},
+              pylint = {enabled = false},
+              mccabe = {enabled = false},
+            },
+          },
+        },
+      })
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
