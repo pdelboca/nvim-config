@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "pylsp" }
+        ensure_installed = { "pylsp", "tsserver" }
       })
     end
   },
@@ -30,6 +30,7 @@ return {
           },
         },
       })
+      lspconfig.tsserver.setup({})
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
