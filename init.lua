@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 
 -- [[ Setting options ]]
-vim.cmd "colorscheme desert"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.number = true
@@ -43,3 +42,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+vim.cmd[[colorscheme tokyonight]]
