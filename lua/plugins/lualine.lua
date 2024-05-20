@@ -4,7 +4,7 @@ return {
     require("lualine").setup({
       sections = {
         lualine_a = {"mode"},
-        lualine_b = {"buffers"},
+        lualine_b = {},
         lualine_c = {},
         lualine_x = {{"filename", path = 1}},
         lualine_y = {"location"},
