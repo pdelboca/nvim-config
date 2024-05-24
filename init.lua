@@ -20,7 +20,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-  pattern = {"*.js", "*.html", "*.css", "*.lua", "*.tf"},
+  pattern = {"*.js", "*.html", "*.css", "*.lua", "*.tf", "*.ts"},
   callback = function()
     vim.opt.tabstop = 2
     vim.opt.softtabstop = 2
@@ -42,4 +42,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd.colorscheme "catppuccin"
