@@ -12,6 +12,9 @@ return {
   config = function()
     local cmp = require("cmp")
     cmp.setup({
+      completion = {
+        autocomplete = false -- Trigger autocompletion manually
+      },
       snippet = {
         expand = function(args)
           vim.fn["vsnip#anonymous"](args.body)
