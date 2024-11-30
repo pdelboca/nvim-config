@@ -33,6 +33,9 @@ vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#|bd#<cr>", {desc = "Close all othe
 vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", { desc = "NVimTree toggle window"})
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set("n", "<C-PageUp>", "<cmd>bnext<cr>", {desc = "Move to next buffer"})
+vim.keymap.set("n", "<C-PageDown>", "<cmd>bprevious<cr>", {desc = "Move to previous buffer"})
+
 
 -- Install lazy-nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
