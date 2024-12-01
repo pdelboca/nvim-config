@@ -35,7 +35,12 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set("n", "<C-PageUp>", "<cmd>bnext<cr>", {desc = "Move to next buffer"})
 vim.keymap.set("n", "<C-PageDown>", "<cmd>bprevious<cr>", {desc = "Move to previous buffer"})
-
+-- When normal or editing I do not want arrow keys to jump between lines. Navigating long lines gets annoying if they are wrapped.
+-- I want a more traditional text editor navigation style.
+vim.keymap.set("n", "<Up>", "gk")
+vim.keymap.set("n", "<Down>", "gj")
+vim.keymap.set("i", "<Up>", "gk")
+vim.keymap.set("i", "<Down>", "gk")
 
 -- Install lazy-nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
