@@ -39,8 +39,8 @@ vim.keymap.set("n", "<C-PageDown>", "<cmd>bprevious<cr>", {desc = "Move to previ
 -- I want a more traditional text editor navigation style.
 vim.keymap.set("n", "<Up>", "gk")
 vim.keymap.set("n", "<Down>", "gj")
-vim.keymap.set("i", "<Up>", "gk")
-vim.keymap.set("i", "<Down>", "gk")
+vim.keymap.set("i", "<Up>", "<C-o>gk")
+vim.keymap.set("i", "<Down>", "<C-o>gj")
 
 -- Install lazy-nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
