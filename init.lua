@@ -29,7 +29,6 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 
 -- [[ Basic Keymaps ]]
-vim.keymap.set("n", "<leader>bd", "<cmd>%bd|e#|bd#<cr>", {desc = "Close all other buffers"} )
 vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", { desc = "NVimTree toggle window"})
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
