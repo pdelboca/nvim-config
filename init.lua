@@ -36,7 +36,6 @@ vim.keymap.set("n", "<C-PageUp>", "<cmd>bnext<cr>", {desc = "Move to next buffer
 vim.keymap.set("n", "<C-PageDown>", "<cmd>bprevious<cr>", {desc = "Move to previous buffer"})
 vim.keymap.set("i", "<C-PageUp>", "<cmd>bnext<cr>", {desc = "Move to next buffer"})
 vim.keymap.set("i", "<C-PageDown>", "<cmd>bprevious<cr>", {desc = "Move to previous buffer"})
-vim.keymap.set("n", "`", "<cmd>NvimTreeToggle<cr>", {desc = "Toogle Nvim Tree"})
 -- When normal or editing I do not want arrow keys to jump between lines. Navigating long lines gets annoying if they are wrapped.
 -- I want a more traditional text editor navigation style.
 vim.keymap.set("n", "<Up>", "gk")
