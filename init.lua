@@ -27,6 +27,13 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     vim.opt.shiftwidth = 2
   end
 })
+-- Clean trailing whitespace
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.py", "*.css"},
+  callback = function()
+    vim.api.nvim_command("%s/\\s\\+$//e")
+  end
+})
 
 -- [[ Basic Keymaps ]]
 vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", { desc = "NVimTree toggle window"})
