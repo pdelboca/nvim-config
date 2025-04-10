@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "pylsp", "ts_ls", "gopls", "clangd" }
+        ensure_installed = { "ruff", "jedi_language_server", "ts_ls", "gopls", "clangd" }
       })
     end
   },
@@ -17,22 +17,12 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.pylsp.setup({
-        settings = {
-          pylsp = {
-            plugins = {
-              flake8 = {enabled = true},
-              pycodestyle = {enabled = false},
-              pyflakes = {enabled = false},
-              pylint = {enabled = false},
-              mccabe = {enabled = false},
-            },
-          },
-        },
-      })
-      lspconfig.ts_ls.setup({})
-      lspconfig.gopls.setup({})
-      lspconfig.clangd.setup({})
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      lspconfig.jedi_language_server.setup({capabilities=capabilities})
+      lspconfig.ruff.setup({capabilities=capabilities})
+      lspconfig.ts_ls.setup({capabilities=capabilities})
+      lspconfig.gopls.setup({capabilities=capabilities})
+      lspconfig.clangd.setup({capabilities=capabilities})
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
