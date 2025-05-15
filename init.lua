@@ -13,6 +13,8 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 vim.opt.autoindent = true
 vim.opt.expandtab = true
@@ -29,7 +31,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 -- Clean trailing whitespace
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.py", "*.css"},
+  pattern = {"*.py", "*.css", "*.md", "*.qss"},
   callback = function()
     vim.api.nvim_command("%s/\\s\\+$//e")
   end
