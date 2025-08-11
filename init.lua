@@ -15,6 +15,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.swapfile = false
 
 vim.opt.autoindent = true
 vim.opt.expandtab = true
