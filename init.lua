@@ -55,6 +55,10 @@ vim.keymap.set("n", "<Down>", "gj")
 vim.keymap.set("i", "<Up>", "<C-o>gk")
 vim.keymap.set("i", "<Down>", "<C-o>gj")
 
+-- LSP Configurations (requires NVIM 0.11+)
+-- Requires pyright: uv tool install pyright
+vim.lsp.enable("pyright")
+
 -- Install lazy-nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
