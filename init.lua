@@ -59,6 +59,25 @@ vim.keymap.set("i", "<Down>", "<C-o>gj")
 -- Requires pyright: uv tool install pyright
 vim.lsp.enable("pyright")
 
+-- Enable auto completion (requires NVIM 0.11+)
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+  end,
+})
+
+-- Use CTRL-space to manually trigger LSP completion.
+-- Use CTRL-Y to select an item. |complete_CTRL-Y|
+vim.keymap.set('i', '<c-space>', function()
+  vim.lsp.completion.get()
+end)
+
+-- Add noselect to completeopt, otherwise autocomplete is annoying
+vim.cmd("set completeopt+=noselect")
+
 -- Install lazy-nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
