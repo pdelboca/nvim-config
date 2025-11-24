@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 })
 -- Clean trailing whitespace
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.py", "*.css", "*.md", "*.qss"},
+  pattern = {"*.py", "*.css", "*.md", "*.qss", "*.js", "*.lua"},
   callback = function()
     vim.api.nvim_command("%s/\\s\\+$//e")
   end
