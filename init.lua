@@ -57,7 +57,8 @@ vim.keymap.set("i", "<Down>", "<C-o>gj")
 
 -- LSP Configurations (requires NVIM 0.11+)
 -- Requires pyright: uv tool install pyright
-vim.lsp.enable("pyright")
+-- Requires vscode lsp: npm install -g vscode-langservers-extracted
+vim.lsp.enable({"pyright", "html"})
 
 -- Enable auto completion (requires NVIM 0.11+)
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -69,11 +70,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Use CTRL-space to manually trigger LSP completion.
--- Use CTRL-Y to select an item. |complete_CTRL-Y|
-vim.keymap.set('i', '<c-space>', function()
-  vim.lsp.completion.get()
-end)
+-- Trigger lsp on special characters.
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp', {}),
+  callback = function(args)
+    local clientID = args.data.client_id
+    -- Enable LSP completion with autotrigger and custom trigger characters
+    vim.lsp.completion.enable(true, clientID, 0, {
+      autotrigger = true,
+      -- Define trigger characters, including the dot
+      triggerCharacters = { '.', ':', '-', '<', '>', '=' }
+    })
+  end
+})
 
 -- Add noselect to completeopt, otherwise autocomplete is annoying
 vim.cmd("set completeopt+=noselect")
