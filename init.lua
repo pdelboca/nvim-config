@@ -58,7 +58,8 @@ vim.keymap.set("i", "<Down>", "<C-o>gj")
 -- LSP Configurations (requires NVIM 0.11+)
 -- Requires pyright: uv tool install pyright
 -- Requires vscode lsp: npm install -g vscode-langservers-extracted
-vim.lsp.enable({"pyright", "html"})
+-- Requires typescrypt lps: npm install -g typescript-language-server typescript
+vim.lsp.enable({"pyright", "html", "ts_ls"})
 
 -- Enable auto completion (requires NVIM 0.11+)
 vim.api.nvim_create_autocmd('LspAttach', {
